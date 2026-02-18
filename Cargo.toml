@@ -4,3 +4,8 @@ version = "0.1.0"
 edition = "2024"
 
 [dependencies]
+base64 = "0.21"
+flate2 = "1.0"
+acir = { git = "https://github.com/noir-lang/noir", package = "acir" }
+acir_field = { git = "https://github.com/noir-lang/noir", package = "acir_field" }
+serde = { version = "1.0", features = ["derive"] }
