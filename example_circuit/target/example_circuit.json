@@ -1,0 +1,28 @@
+{
+  "noir_version": "1.0.0-beta.19+74d6be658e1ad252f87943292ba09bdd4da80bd4",
+  "hash": "2499402194320204361",
+  "abi": {
+    "parameters": [
+      {
+        "name": "x",
+        "type": { "kind": "integer", "sign": "unsigned", "width": 64 },
+        "visibility": "private"
+      },
+      {
+        "name": "y",
+        "type": { "kind": "integer", "sign": "unsigned", "width": 64 },
+        "visibility": "public"
+      }
+    ],
+    "return_type": null,
+    "error_types": {}
+  },
+  "bytecode": "H4sIAAAAAAAA/5WSP08CMRjGe8fiB9DdUTeVLyB3gOKARmI0JsY0XCWNpXf2CpGx3+Dakhg3E+BI/JMwGd39Imxuupi4IWA4Ikbu7Nrn/f2evmlKyat2FWJqNkXPIrB8brmX+Rot25AQ0dnPFLdySnQPMafI941NcWcxTAiujO6bQIqwhGmFIB0o9bIM5h8DDDNrTpH1129Wn/Zyj0IcnaykX7cbz560+x/6fRSKxXxbqx5Bpg6CeKu4zfg+YvwYMVcrnaCmqRP0NIP40A91IJOsaD70bTD4lEAawRDWczBDZY7r6BTT+tByLTq2S32uRZgdXy2JboFyVEGsdZDeSLCpmfnF/80DcT/6Fg7k0Ha9RoQB0z4ReMZkdvIYESeB4sHCFLLGOL7rNSeAVJi7qEHi/3KaItypVb3CmYqiC7N2I6Hd+MsOWllcj2jTDu0Sdz2pps+eLOILo17cPngDAAA=",
+  "debug_symbols": "jZDRCoMwDEX/Jc8+qHMO+itjSK1RCqUtsR0M8d8Xi930YbCXpsnNuaV3gQH7OHXajm4GcV+gJ22MnjrjlAzaWZ4uawG57QIh8ggOOlNeEtoAwkZjCnhKE9PS7KVNNUhitSwA7cCVDUdtcLutxZcuf6NNtbPN7QNfq3/pNtPtmX5wJ5Wm02+hAsH7dTovIOp1MyYte4N7GmO06hBOePms5Pg8OYVDJNysk8aPvQE=",
+  "file_map": {
+    "51": {
+      "source": "fn main(x: u64, y: pub u64) {\n    assert(x != y);\n    assert(x == 9);\n}\n\n\n",
+      "path": "/Users/uttkarsh/Developer/zerok/self-projects/azir/example_circuit/src/main.nr"
+    }
+  }
+}
