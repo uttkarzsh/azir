@@ -6,27 +6,33 @@ type Props = {
 
 export default function Controls({ onAcir, onBrillig, loading }: Props) {
   return (
-    <div className="flex items-center gap-3 pt-2">
+    <div className="flex items-center gap-3">
       <button
         onClick={onAcir}
         disabled={loading}
-        className="px-4 py-2 bg-blue-600 hover:bg-blue-700 disabled:opacity-50 rounded-md text-sm font-medium transition"
+        className="group relative px-5 py-2 font-mono text-xs tracking-[0.12em] uppercase font-semibold border border-amber-500/60 text-amber-400 hover:bg-amber-500/10 hover:border-amber-400 disabled:opacity-30 disabled:cursor-not-allowed transition-all duration-150 rounded-sm"
+        style={{boxShadow: 'none'}}
       >
-        Show ACIR Opcodes
+        <span className="text-amber-600/60 mr-1.5">⬡</span>
+        ACIR Opcodes
       </button>
 
       <button
         onClick={onBrillig}
         disabled={loading}
-        className="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 disabled:opacity-50 rounded-md text-sm font-medium transition"
+        className="group px-5 py-2 font-mono text-xs tracking-[0.12em] uppercase font-semibold border border-neutral-600/60 text-neutral-400 hover:bg-neutral-800/50 hover:border-neutral-500 disabled:opacity-30 disabled:cursor-not-allowed transition-all duration-150 rounded-sm"
       >
-        Show Brillig Functions
+        <span className="text-neutral-600 mr-1.5">⬡</span>
+        Brillig Bytecode
       </button>
 
       {loading && (
-        <span className="text-sm text-gray-400 ml-2">
-          Processing…
-        </span>
+        <div className="flex items-center gap-2 ml-1">
+          <div className="w-1.5 h-1.5 bg-amber-500 rounded-full animate-pulse" />
+          <span className="font-mono text-[10px] text-amber-600/70 tracking-widest uppercase animate-pulse">
+            processing
+          </span>
+        </div>
       )}
     </div>
   );

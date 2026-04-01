@@ -39,7 +39,7 @@
   "file_map": {
     "51": {
       "source": "\nfn main(given_hash: [u32; 8], x: [u32; 16], stat: [u32; 8]){\n    let hash = std::hash::sha256_compression(x, stat);\n    assert_eq(hash, given_hash);\n}\n",
-      "path": "/Users/uttkarsh/Developer/zerok/self-projects/azir/example_circuit/src/main.nr"
+      "path": "/Users/uttkarsh/Developer/zk/self-projects/azir/example_circuit/src/main.nr"
     }
   }
 }
