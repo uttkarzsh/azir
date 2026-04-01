@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import init, { process_bytecode } from "azir_wasm";
+import init, { process_bytecode } from "./wasm/azir_wasm";
 import { type ProgramView } from "./types.ts";
 
 import Header from "./components/Header.tsx";
