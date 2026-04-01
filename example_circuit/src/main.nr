@@ -1,6 +1,5 @@
-fn main(x: u64, y: pub u64) {
-    assert(x != y);
-    assert(x == 9);
+
+fn main(given_hash: [u32; 8], x: [u32; 16], stat: [u32; 8]){
+    let hash = std::hash::sha256_compression(x, stat);
+    assert_eq(hash, given_hash);
 }
-
-

@@ -1,27 +1,44 @@
 {
   "noir_version": "1.0.0-beta.19+74d6be658e1ad252f87943292ba09bdd4da80bd4",
-  "hash": "2499402194320204361",
+  "hash": "16294924055269639281",
   "abi": {
     "parameters": [
       {
-        "name": "x",
-        "type": { "kind": "integer", "sign": "unsigned", "width": 64 },
+        "name": "given_hash",
+        "type": {
+          "kind": "array",
+          "length": 8,
+          "type": { "kind": "integer", "sign": "unsigned", "width": 32 }
+        },
         "visibility": "private"
       },
       {
-        "name": "y",
-        "type": { "kind": "integer", "sign": "unsigned", "width": 64 },
-        "visibility": "public"
+        "name": "x",
+        "type": {
+          "kind": "array",
+          "length": 16,
+          "type": { "kind": "integer", "sign": "unsigned", "width": 32 }
+        },
+        "visibility": "private"
+      },
+      {
+        "name": "stat",
+        "type": {
+          "kind": "array",
+          "length": 8,
+          "type": { "kind": "integer", "sign": "unsigned", "width": 32 }
+        },
+        "visibility": "private"
       }
     ],
     "return_type": null,
     "error_types": {}
   },
-  "bytecode": "H4sIAAAAAAAA/5WSP08CMRjGe8fiB9DdUTeVLyB3gOKARmI0JsY0XCWNpXf2CpGx3+Dakhg3E+BI/JMwGd39Imxuupi4IWA4Ikbu7Nrn/f2evmlKyat2FWJqNkXPIrB8brmX+Rot25AQ0dnPFLdySnQPMafI941NcWcxTAiujO6bQIqwhGmFIB0o9bIM5h8DDDNrTpH1129Wn/Zyj0IcnaykX7cbz560+x/6fRSKxXxbqx5Bpg6CeKu4zfg+YvwYMVcrnaCmqRP0NIP40A91IJOsaD70bTD4lEAawRDWczBDZY7r6BTT+tByLTq2S32uRZgdXy2JboFyVEGsdZDeSLCpmfnF/80DcT/6Fg7k0Ha9RoQB0z4ReMZkdvIYESeB4sHCFLLGOL7rNSeAVJi7qEHi/3KaItypVb3CmYqiC7N2I6Hd+MsOWllcj2jTDu0Sdz2pps+eLOILo17cPngDAAA=",
-  "debug_symbols": "jZDRCoMwDEX/Jc8+qHMO+itjSK1RCqUtsR0M8d8Xi930YbCXpsnNuaV3gQH7OHXajm4GcV+gJ22MnjrjlAzaWZ4uawG57QIh8ggOOlNeEtoAwkZjCnhKE9PS7KVNNUhitSwA7cCVDUdtcLutxZcuf6NNtbPN7QNfq3/pNtPtmX5wJ5Wm02+hAsH7dTovIOp1MyYte4N7GmO06hBOePms5Pg8OYVDJNysk8aPvQE=",
+  "bytecode": "H4sIAAAAAAAA/7XTOU8CcRAF8P+y3Pd9H8stnUe0B4JaEaOFxsRigyQSYZfsYqLlfgNYCiktNCZW2hjt/Rg0dJY29tJNY+RZ7NS/5CUzb3h9cns/EHtSdc5q2nOjL3YuG/L17pXUaYr9vvZwWG/vtXTt8bg3krqqygQAcQgyIYhHkBlBFgRZEWRDkB1BDgQ5EeRCkBtBHgR5EeRDkB9BAQQFERRCUBhBEQRFERRDUBxBCQQlEZRCUBpBGQRlEZT7Db0cXYib2ztNeTBUlqYnS9M589Mb0q/RQ9HX0GtQ/6nk1GSqK3WSikftogpRT6gMdPEZ3ZWORxeiM9CuaaG0NVrNTMgXiqVypao91VW1q4xOu4o8Hev6h7B+3lYWG3e1t4PWq6adnK1tfe7fvA8nzcX39IsxZlsa9vdw1ZWE/T/YCgRXjAi2AMFlI4LNQHDJiGAeCC4aEWwCggtGBDMgWDAimAOC86uD50xgnIk3W6w2u8Ppcnu8Pn8gGApHorF4IplKZ7K58XJ+AA79Ihu/CQAA",
+  "debug_symbols": "jZHNqoMwEEbfZdZZ5Edr21e5XCTqWAIhSpoUivjuHRNt7ULo6iQzOR9DZoIOm3irjeuHO1z/Jmi8sdbcaju0OpjBUXWaGWzXOnhEKsGuT9aoPboAVxetZfDQNqZH91G7xKA9dTkDdB2RAntjcTnN7GPzY7WqVleI8m2X4lddKLH5RXXky2NfcnFZAySXp0/C7wGKvwPUeR/wTxfdGv/15aAkzcpAqRSriowy45RRZZwzLgkFJ8zLIN7oxuK6vz66drfO8By3zrbw0Q8tdtHjMkfq0WQv",
   "file_map": {
     "51": {
-      "source": "fn main(x: u64, y: pub u64) {\n    assert(x != y);\n    assert(x == 9);\n}\n\n\n",
+      "source": "\nfn main(given_hash: [u32; 8], x: [u32; 16], stat: [u32; 8]){\n    let hash = std::hash::sha256_compression(x, stat);\n    assert_eq(hash, given_hash);\n}\n",
       "path": "/Users/uttkarsh/Developer/zerok/self-projects/azir/example_circuit/src/main.nr"
     }
   }

@@ -1,0 +1,11 @@
+[package]
+name = "azir_core"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+serde.workspace = true
+base64.workspace = true
+flate2.workspace = true
+acir.workspace  = true
+acir_field.workspace  = true
