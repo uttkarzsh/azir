@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import init, { process_bytecode } from "azir_wasm";
 import { type ProgramView } from "./types.ts";
 
 import Header from "./components/Header.tsx";
@@ -8,39 +9,51 @@ import AcirView from "./components/AcirView.tsx";
 import BrilligView from "./components/BrilligView.tsx";
 
 export default function App() {
+  const [wasmReady, setWasmReady] = useState(false);
   const [bytecode, setBytecode] = useState("");
   const [output, setOutput] = useState<ProgramView | null>(null);
   const [viewMode, setViewMode] = useState<"acir" | "brillig" | null>(null);
   const [loading, setLoading] = useState(false);
 
-  async function fetchProgram() {
-    if (!bytecode.trim()) return;
+  useEffect(() => {
+    init().then(() => {
+      setWasmReady(true);
+    });
+
+  }, []);
+
+  async function runProcessor() {
+    if (!wasmReady) {
+      console.warn("WASM not ready");
+      return;
+    }
+
+    if (!bytecode.trim()) {
+      console.warn("Empty bytecode");
+      return;
+    }
+
+    if (output) return;
 
     setLoading(true);
 
     try {
-      const res = await fetch("http://localhost:3000/process", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ bytecode }),
-      });
-
-      const data: ProgramView = await res.json();
-      setOutput(data);
+      const result = process_bytecode(bytecode);
+      setOutput(result as ProgramView);
     } catch (err) {
-      console.error(err);
+      console.error("Processing failed:", err);
     } finally {
       setLoading(false);
     }
-  }
+}
 
   async function handleAcir() {
-    await fetchProgram();
+    await runProcessor();
     setViewMode("acir");
   }
 
   async function handleBrillig() {
-    await fetchProgram();
+    await runProcessor();
     setViewMode("brillig");
   }
 
