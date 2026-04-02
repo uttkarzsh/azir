@@ -7,6 +7,7 @@ import BytecodeInput from "./components/BytecodeInput.tsx";
 import Controls from "./components/Controls.tsx";
 import AcirView from "./components/AcirView.tsx";
 import BrilligView from "./components/BrilligView.tsx";
+import FAQ from "./components/faq.tsx";
 
 export default function App() {
   const [wasmReady, setWasmReady] = useState(false);
@@ -99,6 +100,7 @@ export default function App() {
         {output && viewMode === "acir" && <AcirView functions={output.acir} />}
         {output && viewMode === "brillig" && <BrilligView functions={output.brillig} />}
       </div>
+      <FAQ />
     </div>
   );
 }

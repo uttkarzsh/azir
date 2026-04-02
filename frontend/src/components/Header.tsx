@@ -11,8 +11,9 @@ export default function Header() {
         </span>
       </div>
       <p className="font-mono text-xs text-neutral-500 mt-1 tracking-[0.15em] uppercase">
-        ACIR Circuit Inspector ·{" "}
-        <span className="text-amber-700/60">Enter your compiled circuit bytecode below to see constraints</span>
+        Circuit inspector·{" "}
+        <span className="text-amber-700/60 hover:text-amber-700/50 hover:underline transition"><a href="https://github.com/uttkarzsh/azir" target="_blank"
+rel="noopener noreferrer">SOURCE CODE</a> </span>
       </p>
       <div className="mt-4 h-px bg-gradient-to-r from-amber-500/40 via-amber-500/10 to-transparent" />
     </header>

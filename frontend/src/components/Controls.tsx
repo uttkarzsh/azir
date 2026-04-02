@@ -23,7 +23,7 @@ export default function Controls({ onAcir, onBrillig, loading }: Props) {
         className="group px-5 py-2 font-mono text-xs tracking-[0.12em] uppercase font-semibold border border-neutral-600/60 text-neutral-400 hover:bg-neutral-800/50 hover:border-neutral-500 disabled:opacity-30 disabled:cursor-not-allowed transition-all duration-150 rounded-sm"
       >
         <span className="text-neutral-600 mr-1.5">⬡</span>
-        Brillig Bytecode
+        Brillig Functions
       </button>
 
       {loading && (

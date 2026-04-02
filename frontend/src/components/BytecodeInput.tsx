@@ -28,7 +28,7 @@ export default function BytecodeInput({ value, onChange }: Props) {
             caretColor: '#f59e0b',
             boxShadow: 'inset 0 1px 8px rgba(0,0,0,0.6)',
           }}
-          placeholder="paste compiled program bytecode (base64) ..."
+          placeholder="paste compiled program bytecode here..."
           spellCheck={false}
         />
         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-amber-500/20 to-transparent pointer-events-none" />
